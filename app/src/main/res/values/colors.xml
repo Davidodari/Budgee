@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--LIGHT COLOR THEME-->
+    <!--An explicit dark color theme can be created by overriding values
+     in values-night/colors.xml if needed-->
+
+    <color name="color_primary">#9c27b0</color>
+    <color name="color_primary_variant">#6a0080</color>
+    <color name="color_secondary">#ffd180</color>
+    <color name="color_secondary_variant">#caa052</color>
+
+    <color name="color_background">#ffffff</color>
+    <color name="color_surface">#ffffff</color>
+    <color name="color_error">#bf360c</color>
+
+    <color name="color_on_primary">#ffffff</color>
+    <color name="color_on_secondary">#000000</color>
+    <color name="color_on_background">#000000</color>
+    <color name="color_on_surface">#000000</color>
+    <color name="color_on_error">#ffffff</color>
+
+</resources>

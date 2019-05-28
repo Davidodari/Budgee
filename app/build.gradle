@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion sdkVersion
+    defaultConfig {
+        applicationId "com.odaroid.budgee"
+        minSdkVersion 21
+        targetSdkVersion sdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation androidx.appcompat
+    implementation androidx.core_ktx
+    implementation androidx.constraint_layout
+    implementation 'com.google.android.material:material:1.1.0-alpha06'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation androidx.test_runner
+    androidTestImplementation androidx.espresso_core
+}
