@@ -6,17 +6,17 @@
 
     <color name="color_primary">#9c27b0</color>
     <color name="color_primary_variant">#6a0080</color>
-    <color name="color_secondary">#ffd180</color>
-    <color name="color_secondary_variant">#caa052</color>
+    <color name="color_secondary">#84ffff</color>
+    <color name="color_secondary_variant">#4bcbcc</color>
 
     <color name="color_background">#ffffff</color>
     <color name="color_surface">#ffffff</color>
-    <color name="color_error">#bf360c</color>
+    <color name="color_error">#fdd835</color>
 
     <color name="color_on_primary">#ffffff</color>
     <color name="color_on_secondary">#000000</color>
     <color name="color_on_background">#000000</color>
     <color name="color_on_surface">#000000</color>
-    <color name="color_on_error">#ffffff</color>
+    <color name="color_on_error">#000000</color>
 
 </resources>
