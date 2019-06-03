@@ -1,6 +1,13 @@
 ext {
     sdkVersion = 28
+//    Versioning
+    versionMajor = 0
+    versionMinor = 1
+    versionPatch = 0
+    versionClassifier = "alpha"
+    minimumSdkVersion = 21
 
+//    Dependencies
     androidx = [
             'appcompat'        : 'androidx.appcompat:appcompat:1.0.2',
             'constraint_layout': 'androidx.constraintlayout:constraintlayout:1.1.3',

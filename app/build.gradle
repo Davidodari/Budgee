@@ -8,10 +8,10 @@ android {
     compileSdkVersion sdkVersion
     defaultConfig {
         applicationId "com.odaroid.budgee"
-        minSdkVersion 21
+        minSdkVersion minimumSdkVersion
         targetSdkVersion sdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode generateVersionCode()
+        versionName generateVersionName("$versionMajor.$versionMinor.$versionPatch")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -33,3 +33,15 @@ dependencies {
     androidTestImplementation androidx.test_runner
     androidTestImplementation androidx.espresso_core
 }
+
+private Integer generateVersionCode() {
+    return (minimumSdkVersion * 10000000) + (versionMajor * 10000) + (versionMinor * 100) + versionPatch
+}
+
+private String generateVersionName(String versionName) {
+    if (versionClassifier != null) {
+        versionName += "-$versionClassifier"
+    }
+    return versionName
+}
+
