@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Budgee</string>
+    
+    <!--Fragment Titles-->
+    <string name="title_accounts">Accounts</string>
+    <string name="title_add_account">Add Account</string>
 </resources>

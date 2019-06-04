@@ -4,14 +4,20 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
             app:startDestination="@id/accountsFragment">
 
-    <fragment android:id="@+id/accountsFragment" android:name="com.odaroid.budgee.home.AccountsFragment"
-              android:label="fragment_accounts" tools:layout="@layout/fragment_accounts">
+    <fragment android:id="@+id/accountsFragment"
+              android:name="com.odaroid.budgee.home.AccountsFragment"
+              android:label="@string/title_accounts"
+              tools:layout="@layout/fragment_accounts">
         <action android:id="@+id/action_accountsFragment_to_addAccountFragment"
                 app:destination="@id/addAccountFragment"/>
     </fragment>
-    <fragment android:id="@+id/addAccountFragment" android:name="com.odaroid.budgee.add.AddAccountFragment"
-              android:label="fragment_add_account" tools:layout="@layout/fragment_add_account">
-        <action android:id="@+id/action_addAccountFragment_to_accountsFragment" app:destination="@id/accountsFragment"
-                app:popUpTo="@+id/accountsFragment" app:popUpToInclusive="true"/>
+    <fragment android:id="@+id/addAccountFragment"
+              android:name="com.odaroid.budgee.add.AddAccountFragment"
+              android:label="@string/title_add_account"
+              tools:layout="@layout/fragment_add_account">
+        <action
+                android:id="@+id/action_addAccountFragment_to_accountsFragment"
+                app:destination="@+id/accountsFragment"
+                app:popUpTo="@+id/accountsFragment"/>
     </fragment>
 </navigation>
