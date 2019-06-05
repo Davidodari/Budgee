@@ -31,13 +31,14 @@ dependencies {
     implementation androidx.appcompat
     implementation androidx.core_ktx
     implementation androidx.constraint_layout
-    implementation 'com.google.android.material:material:1.1.0-alpha06'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.12'
+    implementation material_design
+    implementation androidx.legacy_v4_support
+//    testImplementation 'junit:junit:4.12'
     androidTestImplementation androidx.test_runner
+    androidTestImplementation androidx.junit
     androidTestImplementation androidx.espresso_core
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
+    implementation androidx.nav_fragment
+    implementation androidx.nav_ui
 }
 
 private Integer generateVersionCode() {
