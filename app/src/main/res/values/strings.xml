@@ -3,5 +3,9 @@
     
     <!--Fragment Titles-->
     <string name="title_accounts">Accounts</string>
-    <string name="title_add_account">Add Account</string>
+    <string name="title_add_account">New Account</string>
+    <string name="hint_account_name">Account Name</string>
+    <string name="hint_account_target">Target</string>
+    <string name="label_add">Add</string>
+    <string name="add">Add</string>
 </resources>

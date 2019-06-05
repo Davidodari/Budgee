@@ -19,7 +19,7 @@ class AccountsFragment : Fragment() {
         val binding: FragmentAccountsBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_accounts, container, false)
         binding.addAccountFloatingActionButton.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.addAccountFragment)
+            view.findNavController().navigate(R.id.action_accountsFragment_to_addAccountFragment)
         }
         return binding.root
     }
