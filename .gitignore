@@ -11,6 +11,7 @@
 /.idea/markdown-navigator.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/.idea/render.experimental.xml
 .DS_Store
 /build
 /captures
