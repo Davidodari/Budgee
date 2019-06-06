@@ -16,3 +16,6 @@
 /build
 /captures
 .externalNativeBuild
+.idea/workspace.xml___jb_tmp___
+app/libs/
+app/src/test/

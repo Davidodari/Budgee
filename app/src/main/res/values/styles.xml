@@ -1,9 +1,7 @@
 <resources>
 
     <!-- Base application theme in Android Manifest. -->
-    <style name="BudgeeTheme.DayAndNight" parent="Base.MaterialThemeBuilder"/>
-
-    <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!--Material color attributes -->
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryVariant">@color/color_primary_variant</item>
