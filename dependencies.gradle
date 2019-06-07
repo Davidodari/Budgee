@@ -5,7 +5,7 @@ ext {
 //    Versioning
     versionMajor = 0
     versionMinor = 1
-    versionPatch = 0
+    versionPatch = 1
     versionClassifier = "alpha"
     minimumSdkVersion = 21
 
