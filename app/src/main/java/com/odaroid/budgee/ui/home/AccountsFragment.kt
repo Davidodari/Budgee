@@ -11,6 +11,9 @@ import androidx.navigation.findNavController
 import com.odaroid.budgee.R
 import com.odaroid.budgee.databinding.FragmentAccountsBinding
 
+/**
+ * Handles Accounts View Logic in MVVM Stack
+ */
 class AccountsFragment : Fragment() {
 
     override fun onCreateView(

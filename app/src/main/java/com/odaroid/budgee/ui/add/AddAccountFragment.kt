@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment
 import com.odaroid.budgee.R
 import com.odaroid.budgee.databinding.FragmentAddAccountBinding
 
+/**
+ * Handles Add Account View Logic in MVVM Stack
+ */
 class AddAccountFragment : Fragment() {
 
     override fun onCreateView(

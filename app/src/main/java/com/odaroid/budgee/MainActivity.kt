@@ -6,6 +6,9 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 
+/**
+ * Serves as a container to [Fragments]
+ */
 class MainActivity : AppCompatActivity() {
 
     lateinit var navController: NavController
