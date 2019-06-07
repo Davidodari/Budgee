@@ -11,7 +11,11 @@
 /.idea/markdown-navigator.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/.idea/render.experimental.xml
 .DS_Store
 /build
 /captures
 .externalNativeBuild
+.idea/workspace.xml___jb_tmp___
+app/libs/
+app/src/test/
