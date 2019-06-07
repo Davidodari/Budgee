@@ -1,4 +1,4 @@
-package com.odaroid.budgee.home
+package com.odaroid.budgee.ui.home
 
 
 import android.os.Bundle

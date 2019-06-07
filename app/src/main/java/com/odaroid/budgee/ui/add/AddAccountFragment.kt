@@ -1,4 +1,4 @@
-package com.odaroid.budgee.add
+package com.odaroid.budgee.ui.add
 
 
 import android.os.Bundle

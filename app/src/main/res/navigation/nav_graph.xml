@@ -6,7 +6,7 @@
             app:startDestination="@id/accountsFragment">
 
     <fragment android:id="@+id/accountsFragment"
-              android:name="com.odaroid.budgee.home.AccountsFragment"
+              android:name="com.odaroid.budgee.ui.home.AccountsFragment"
               android:label="@string/title_accounts"
               tools:layout="@layout/fragment_accounts">
         <action android:id="@+id/action_accountsFragment_to_addAccountFragment"
@@ -17,7 +17,7 @@
                 app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment android:id="@+id/addAccountFragment"
-              android:name="com.odaroid.budgee.add.AddAccountFragment"
+              android:name="com.odaroid.budgee.ui.add.AddAccountFragment"
               android:label="@string/title_add_account"
               tools:layout="@layout/fragment_add_account">
         <action
