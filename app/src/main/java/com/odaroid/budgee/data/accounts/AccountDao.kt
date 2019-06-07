@@ -1,3 +1,25 @@
 package com.odaroid.budgee.data.accounts
 
-interface AccountDao
+import androidx.room.*
+
+/**
+ * Defines methods for using the Accounts class with Room.
+ */
+@Dao
+interface AccountDao {
+
+    @Query("SELECT * FROM account")
+    fun getAll(): List<Account>
+
+    @Insert
+    fun insert(vararg accounts: Account)
+
+    @Update
+    fun update(account: Account)
+
+    @Query("DELETE FROM account")
+    fun clearAllAccounts()
+
+    @Delete
+    fun delete(account: Account)
+}
