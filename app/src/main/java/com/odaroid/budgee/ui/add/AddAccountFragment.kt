@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.odaroid.budgee.R
 import com.odaroid.budgee.databinding.FragmentAddAccountBinding
 
@@ -20,6 +21,8 @@ class AddAccountFragment : Fragment() {
     ): View? {
         val binding: FragmentAddAccountBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_account, container, false)
+        val viewModel: AddAccountViewModel by viewModels()
+        binding.addAccountViewModel = viewModel
         return binding.root
     }
 }
