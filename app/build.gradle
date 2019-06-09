@@ -63,11 +63,10 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:$room_version"
 
 //    Lifecycle
-    implementation ("androidx.lifecycle:lifecycle-extensions:$lifecycle_version"){
-        exclude group: 'androidx.lifecycle',module: 'lifecycle-viewmodel'
-    }
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     testImplementation 'androidx.arch.core:core-testing:2.1.0-beta01'
 
 //    Coroutines
@@ -76,6 +75,7 @@ dependencies {
 
 //    Logging
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-alpha-2'
 
 }
 

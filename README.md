@@ -3,6 +3,12 @@
 
 An android app to keep track of financial goals
 
+## Tools Used
+
+1. [Architecture Components]()
+2. [Timber]()
+3. [Coroutines]()
+
 ## License
 
 ```
