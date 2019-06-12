@@ -17,7 +17,7 @@ import org.mockito.Mockito.verify
 
 @MediumTest
 @RunWith(AndroidJUnit4::class)
-class HomePageTest {
+class HomePageNavigationTest {
 
     @Test
     fun testNavigationToAddAccountScreen() {

@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.odaroid.budgee.R
 import com.odaroid.budgee.TextWatcherImpl
+import com.odaroid.budgee.data.BudgeeDatabase
 import com.odaroid.budgee.data.accounts.Account
 import com.odaroid.budgee.databinding.FragmentAddAccountBinding
 
@@ -25,7 +26,10 @@ class AddAccountFragment : Fragment() {
     ): View? {
         val binding: FragmentAddAccountBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_account, container, false)
-        val viewModel: AddAccountViewModel by viewModels()
+        val application = requireNotNull(this.activity).application
+        val dataSource = BudgeeDatabase.getInstance(application).accountDao()
+        val viewModelFactory = AddAccountViewModelFactory(dataSource)
+        val viewModel: AddAccountViewModel by viewModels { viewModelFactory }
         binding.addAccountViewModel = viewModel
         binding
             .targetAmountEditText
@@ -75,7 +79,7 @@ class AddAccountFragment : Fragment() {
         binding.addButton.setOnClickListener {
             val name = binding.accountNameEditText.text.toString()
             val amount = binding.targetAmountEditText.text.toString().toLong()
-            viewModel.saveAccountInfo(Account(name, amount))
+            viewModel.saveAccount(Account(name, amount))
         }
     }
 }
