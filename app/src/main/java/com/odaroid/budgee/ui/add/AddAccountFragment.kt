@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.odaroid.budgee.R
 import com.odaroid.budgee.databinding.FragmentAddAccountBinding
+import com.odaroid.budgee.ui.ViewModelsFactory
 import com.odaroid.budgee.utilities.TextWatcherImpl
 
 /**
@@ -24,8 +25,7 @@ class AddAccountFragment : Fragment() {
         val binding: FragmentAddAccountBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_account, container, false)
         val application = requireNotNull(this.activity).application
-        val viewModelFactory = AddAccountViewModelFactory(application)
-        val viewModel: AddAccountViewModel by viewModels { viewModelFactory }
+        val viewModel: AddAccountViewModel by viewModels { ViewModelsFactory(application)}
         binding.addAccountViewModel = viewModel
         binding.lifecycleOwner = this
         binding
@@ -67,6 +67,3 @@ class AddAccountFragment : Fragment() {
         return binding.root
     }
 }
-
-
-
