@@ -33,8 +33,8 @@ class AccountsAdapter internal constructor(
         holder.accountTarget.text = current.target.toString()
     }
 
-    internal fun setAccounts(words: List<Account>) {
-        this.accounts = words
+    internal fun setAccounts(accounts: List<Account>) {
+        this.accounts = accounts
         notifyDataSetChanged()
     }
 
