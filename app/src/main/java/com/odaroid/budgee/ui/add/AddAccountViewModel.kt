@@ -21,6 +21,10 @@ class AddAccountViewModel(application: Application) : AndroidViewModel(applicati
 
     private val _accountTarget: MutableLiveData<Long> by lazy { MutableLiveData<Long>() }
 
+    private val _shouldNavigateBack: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
+    val shouldNavigateBack: LiveData<Boolean>
+        get() = _shouldNavigateBack
+
     init {
         val dataSource = BudgeeDatabase.getInstance(application).accountDao()
         repository = AccountsRepository(dataSource)
@@ -71,5 +75,10 @@ class AddAccountViewModel(application: Application) : AndroidViewModel(applicati
                 repository.insert(account)
             }
         }
+        _shouldNavigateBack.value = true
+    }
+
+    fun isDoneNavigating() {
+        _shouldNavigateBack.value = false
     }
 }

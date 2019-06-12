@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import com.odaroid.budgee.R
 import com.odaroid.budgee.databinding.FragmentAddAccountBinding
 import com.odaroid.budgee.ui.ViewModelsFactory
@@ -25,7 +27,7 @@ class AddAccountFragment : Fragment() {
         val binding: FragmentAddAccountBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_account, container, false)
         val application = requireNotNull(this.activity).application
-        val viewModel: AddAccountViewModel by viewModels { ViewModelsFactory(application)}
+        val viewModel: AddAccountViewModel by viewModels { ViewModelsFactory(application) }
         binding.addAccountViewModel = viewModel
         binding.lifecycleOwner = this
         binding
@@ -64,6 +66,12 @@ class AddAccountFragment : Fragment() {
                     }
                 }
             })
+        viewModel.shouldNavigateBack.observe(this) { shouldNavigate ->
+            if (shouldNavigate) {
+                findNavController().navigate(R.id.action_addAccountFragment_to_accountsFragment)
+                viewModel.isDoneNavigating()
+            }
+        }
         return binding.root
     }
 }
