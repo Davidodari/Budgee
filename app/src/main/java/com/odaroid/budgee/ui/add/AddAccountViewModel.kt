@@ -1,17 +1,29 @@
 package com.odaroid.budgee.ui.add
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.odaroid.budgee.data.AccountsRepository
+import com.odaroid.budgee.data.BudgeeDatabase
 import com.odaroid.budgee.data.accounts.Account
-import com.odaroid.budgee.data.accounts.AccountDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
-class AddAccountViewModel(private val database: AccountDao) : ViewModel() {
+class AddAccountViewModel(
+    application: Application
+) :
+    AndroidViewModel(application) {
+
+    private var repository: AccountsRepository
+
+    init {
+        val dataSource = BudgeeDatabase.getInstance(application).accountDao()
+        repository = AccountsRepository(dataSource)
+    }
 
     private val _isReadyToSave: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
     val isReadyToSave: LiveData<Boolean>
@@ -52,7 +64,7 @@ class AddAccountViewModel(private val database: AccountDao) : ViewModel() {
         Timber.d("New Account: $account")
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                database.insert(account)
+                repository.insert(account)
             }
         }
     }

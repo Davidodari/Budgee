@@ -1,17 +1,18 @@
 package com.odaroid.budgee.ui.add
 
+import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.odaroid.budgee.data.accounts.Account
-import com.odaroid.budgee.data.accounts.AccountDao
 
-class AddAccountViewModelFactory(private val database: AccountDao) : ViewModelProvider.Factory {
-
+class AddAccountViewModelFactory(
+    private val application: Application
+) :
+    ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(AddAccountViewModel::class.java)) {
-            return AddAccountViewModel(database) as T
+            return AddAccountViewModel(application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
