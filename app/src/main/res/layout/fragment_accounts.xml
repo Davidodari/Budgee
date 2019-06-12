@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
     <androidx.coordinatorlayout.widget.CoordinatorLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.home.AccountsFragment">
-
+        <androidx.recyclerview.widget.RecyclerView
+                android:clipToPadding="false"
+                android:id="@+id/accounts_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:itemCount="10"
+                tools:listitem="@layout/list_item_main_accounts"
+                android:layout_margin="@dimen/size_small"/>
         <!--
         TODO: Investigate why this attribute is required explicitly to pass tests
         android:theme="@style/Theme.MaterialComponents."

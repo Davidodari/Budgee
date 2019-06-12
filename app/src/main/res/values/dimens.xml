@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="size_standard">16dp</dimen>
+    <dimen name="size_small">8dp</dimen>
     <dimen name="card_min_size">200dp</dimen>
 </resources>
