@@ -18,11 +18,13 @@ class AddAccountViewModel(
 ) :
     AndroidViewModel(application) {
 
-    private var repository: AccountsRepository
+    private val repository: AccountsRepository
+    val accounts: LiveData<List<Account>>
 
     init {
         val dataSource = BudgeeDatabase.getInstance(application).accountDao()
         repository = AccountsRepository(dataSource)
+        accounts = repository.userAccounts
     }
 
     private val _isReadyToSave: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }

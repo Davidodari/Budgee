@@ -6,7 +6,7 @@ import com.odaroid.budgee.data.accounts.AccountDao
 
 class AccountsRepository(private val accountDao: AccountDao) {
 
-    val userTargetAccounts: LiveData<List<Account>> = accountDao.getAll()
+    val userAccounts: LiveData<List<Account>> = accountDao.getAll()
 
     fun insert(account: Account) {
         accountDao.insert(account)
