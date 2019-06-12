@@ -37,15 +37,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputLayout
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
                         android:id="@+id/account_name_text_layout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:hint="@string/hint_account_name"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         app:errorEnabled="true"
-                        android:hint="@string/hint_account_name">
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/account_name_edit_text"
@@ -56,16 +56,16 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                        app:layout_constraintTop_toBottomOf="@+id/account_name_text_layout"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
                         android:id="@+id/account_target_text_layout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:errorEnabled="true"
                         android:layout_marginTop="@dimen/size_standard"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:hint="@string/hint_account_target">
+                        android:hint="@string/hint_account_target"
+                        app:errorEnabled="true"
+                        app:layout_constraintTop_toBottomOf="@+id/account_name_text_layout"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/target_amount_edit_text"
@@ -77,16 +77,16 @@
 
                 <com.google.android.material.button.MaterialButton
                         android:id="@+id/add_button"
-                        app:layout_constraintTop_toBottomOf="@+id/account_target_text_layout"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
                         android:layout_width="0dp"
-                        android:enabled="false"
+                        android:layout_height="wrap_content"
+                        android:enabled="@{addAccountViewModel.isReadyToSave}"
                         android:onClick="@{()-> addAccountViewModel.saveAccount()}"
                         android:backgroundTint="@color/button_color_states"
                         android:textColor="@color/button_text_color_states"
-                        android:layout_height="wrap_content"
-                        android:text="@string/label_add"/>
+                        android:text="@string/label_add"
+                        app:layout_constraintTop_toBottomOf="@+id/account_target_text_layout"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

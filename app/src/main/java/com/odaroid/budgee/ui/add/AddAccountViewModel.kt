@@ -61,10 +61,10 @@ class AddAccountViewModel(
 //        Default Setup
         hasNoAccountName()
         hasNoAccountTarget()
-        addButtonState()
+        changeButtonState()
     }
 
-    fun addButtonState() {
+    fun changeButtonState() {
         _isReadyToSave.value = (_hasAccountName.value!! && _hasAccountTarget.value!!)
     }
 

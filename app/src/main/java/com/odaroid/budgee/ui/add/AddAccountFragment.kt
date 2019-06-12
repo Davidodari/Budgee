@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.observe
 import com.odaroid.budgee.R
 import com.odaroid.budgee.databinding.FragmentAddAccountBinding
 import com.odaroid.budgee.utilities.TextWatcherImpl
@@ -35,7 +34,7 @@ class AddAccountFragment : Fragment() {
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     if (s.toString().isNotEmpty() && s.toString().toLong() > 0) {
                         viewModel.hasAccountTarget(binding.targetAmountEditText.text.toString().toLong())
-                        viewModel.addButtonState()
+                        viewModel.changeButtonState()
                     }
                 }
 
@@ -43,7 +42,7 @@ class AddAccountFragment : Fragment() {
                     super.afterTextChanged(s)
                     if (s.toString().isEmpty()) {
                         viewModel.hasNoAccountTarget()
-                        viewModel.addButtonState()
+                        viewModel.changeButtonState()
                     }
                 }
             })
@@ -53,7 +52,7 @@ class AddAccountFragment : Fragment() {
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     if (s.toString().isNotEmpty()) {
                         viewModel.hasAccountName(binding.accountNameEditText.text.toString())
-                        viewModel.addButtonState()
+                        viewModel.changeButtonState()
                     }
                 }
 
@@ -61,15 +60,10 @@ class AddAccountFragment : Fragment() {
                     super.afterTextChanged(s)
                     if (s.toString().isEmpty()) {
                         viewModel.hasNoAccountName()
-                        viewModel.addButtonState()
+                        viewModel.changeButtonState()
                     }
                 }
             })
-        viewModel.isReadyToSave.observe(this) { canSave ->
-            binding.addButton.isEnabled = canSave
-
-        }
-
         return binding.root
     }
 }
