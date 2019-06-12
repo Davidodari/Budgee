@@ -12,19 +12,38 @@ class AddAccountViewModel : ViewModel() {
     val isReadyToSave: LiveData<Boolean>
         get() = _isReadyToSave
 
+    private val _hasAccountName: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
+
+    private val _hasAccountTarget: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
+
+    fun hasAccountName() {
+        _hasAccountName.value = true
+    }
+
+    fun hasNoAccountName() {
+        _hasAccountName.value = false
+    }
+
+    fun hasAccountTarget() {
+        _hasAccountTarget.value = true
+    }
+
+    fun hasNoAccountTarget() {
+        _hasAccountTarget.value = false
+    }
+
     init {
-        _isReadyToSave.value = false
+//        Default Setup
+        hasNoAccountName()
+        hasNoAccountTarget()
+        addButtonState()
     }
 
-    fun enableSaveButton() {
-        _isReadyToSave.value = true
-    }
-
-    fun disableSaveButton() {
-        _isReadyToSave.value = false
+    fun addButtonState() {
+        _isReadyToSave.value = (_hasAccountName.value!! && _hasAccountTarget.value!!)
     }
 
     fun saveAccountInfo(account: Account) {
-        Timber.d("New Acc: $account")
+        Timber.d("New Account: $account")
     }
 }
