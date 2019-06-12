@@ -21,6 +21,10 @@ class AddAccountViewModel(
     private val repository: AccountsRepository
     val accounts: LiveData<List<Account>>
 
+    private val _accountName: MutableLiveData<String> by lazy { MutableLiveData<String>() }
+
+    private val _accountTarget: MutableLiveData<Long> by lazy { MutableLiveData<Long>() }
+
     init {
         val dataSource = BudgeeDatabase.getInstance(application).accountDao()
         repository = AccountsRepository(dataSource)
@@ -35,16 +39,18 @@ class AddAccountViewModel(
 
     private val _hasAccountTarget: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
 
-    fun hasAccountName() {
+    fun hasAccountName(name:String) {
         _hasAccountName.value = true
+        _accountName.value = name
     }
 
     fun hasNoAccountName() {
         _hasAccountName.value = false
     }
 
-    fun hasAccountTarget() {
+    fun hasAccountTarget(target:Long) {
         _hasAccountTarget.value = true
+        _accountTarget.value = target
     }
 
     fun hasNoAccountTarget() {
@@ -62,7 +68,8 @@ class AddAccountViewModel(
         _isReadyToSave.value = (_hasAccountName.value!! && _hasAccountTarget.value!!)
     }
 
-    fun saveAccount(account: Account) {
+    fun saveAccount() {
+        val account = Account(_accountName.value!!,_accountTarget.value!!)
         Timber.d("New Account: $account")
         viewModelScope.launch {
             withContext(Dispatchers.IO) {

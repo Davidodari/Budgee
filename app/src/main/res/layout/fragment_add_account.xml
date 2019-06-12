@@ -82,6 +82,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         android:layout_width="0dp"
                         android:enabled="false"
+                        android:onClick="@{()-> addAccountViewModel.saveAccount()}"
                         android:backgroundTint="@color/button_color_states"
                         android:textColor="@color/button_text_color_states"
                         android:layout_height="wrap_content"
