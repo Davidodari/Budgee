@@ -13,13 +13,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
-class AddAccountViewModel(
-    application: Application
-) :
-    AndroidViewModel(application) {
+class AddAccountViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: AccountsRepository
-    val accounts: LiveData<List<Account>>
 
     private val _accountName: MutableLiveData<String> by lazy { MutableLiveData<String>() }
 
@@ -28,7 +24,6 @@ class AddAccountViewModel(
     init {
         val dataSource = BudgeeDatabase.getInstance(application).accountDao()
         repository = AccountsRepository(dataSource)
-        accounts = repository.userAccounts
     }
 
     private val _isReadyToSave: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
@@ -39,7 +34,7 @@ class AddAccountViewModel(
 
     private val _hasAccountTarget: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
 
-    fun hasAccountName(name:String) {
+    fun hasAccountName(name: String) {
         _hasAccountName.value = true
         _accountName.value = name
     }
@@ -48,7 +43,7 @@ class AddAccountViewModel(
         _hasAccountName.value = false
     }
 
-    fun hasAccountTarget(target:Long) {
+    fun hasAccountTarget(target: Long) {
         _hasAccountTarget.value = true
         _accountTarget.value = target
     }
@@ -69,7 +64,7 @@ class AddAccountViewModel(
     }
 
     fun saveAccount() {
-        val account = Account(_accountName.value!!,_accountTarget.value!!)
+        val account = Account(_accountName.value!!, _accountTarget.value!!)
         Timber.d("New Account: $account")
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
