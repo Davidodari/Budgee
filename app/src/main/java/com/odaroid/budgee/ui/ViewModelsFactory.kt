@@ -12,10 +12,10 @@ class ViewModelsFactory(
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        when {
+        return when {
             (modelClass.isAssignableFrom(AddAccountViewModel::class.java)) -> AddAccountViewModel(application) as T
             (modelClass.isAssignableFrom(AccountsViewModel::class.java)) -> AccountsViewModel(application) as T
+            else -> throw IllegalArgumentException("Unknown ViewModel class")
         }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
