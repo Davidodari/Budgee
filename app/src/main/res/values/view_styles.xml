@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!--The Default Button Style-->
-    <style name="Budgee.UnelevatedButton.Default" parent="Widget.MaterialComponents.Button.UnelevatedButton">
-        <item name="android:backgroundTint">@color/color_secondary</item>
-        <item name="android:textColor">@color/color_on_secondary</item>
-    </style>
-</resources>

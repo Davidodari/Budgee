@@ -1,7 +1,6 @@
 package com.odaroid.budgee
 
 
-import androidx.annotation.UiThread
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -10,7 +9,7 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
-import com.odaroid.budgee.home.AccountsFragment
+import com.odaroid.budgee.ui.home.AccountsFragment
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.mock
@@ -18,7 +17,7 @@ import org.mockito.Mockito.verify
 
 @MediumTest
 @RunWith(AndroidJUnit4::class)
-class HomePageTest {
+class HomePageNavigationTest {
 
     @Test
     fun testNavigationToAddAccountScreen() {

@@ -5,8 +5,7 @@
      in values-night/colors.xml if needed-->
 
     <color name="color_primary">#9c27b0</color>
-    <color name="color_primary_variant">#d05ce3</color>
-    <color name="color_primary_dark">#6a0080</color>
+    <color name="color_primary_variant">#6a0080</color>
     <color name="color_secondary">#84ffff</color>
     <color name="color_secondary_variant">#4bcbcc</color>
 
@@ -19,5 +18,8 @@
     <color name="color_on_background">#000000</color>
     <color name="color_on_surface">#000000</color>
     <color name="color_on_error">#000000</color>
+
+    <color name="color_disabled_button">#9e9e9e</color>
+
 
 </resources>

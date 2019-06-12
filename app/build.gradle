@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion sdkVersion
     defaultConfig {
@@ -26,6 +28,11 @@ android {
 }
 
 dependencies {
+    def room_version = "2.1.0-rc01"
+    def navigation_version = "2.0.0"
+    def lifecycle_version = "2.2.0-alpha01"
+    def coroutines_version = "1.2.1"
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
@@ -35,19 +42,41 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
 //    Testing
-//    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:core:1.2.0'
-    androidTestImplementation ('androidx.test.ext:junit:1.1.1'){
+    androidTestImplementation('androidx.test.ext:junit:1.1.1') {
         exclude group: 'androidx.test', module: 'core'
     }
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'org.mockito:mockito-android:2.28.2'
-    debugImplementation ('androidx.fragment:fragment-testing:1.1.0-beta01'){
+    debugImplementation('androidx.fragment:fragment-testing:1.1.0-beta01') {
         exclude group: 'androidx.test', module: 'core'
     }
+
 //    Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+
+//    Room
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    androidTestImplementation "androidx.room:room-testing:$room_version"
+
+//    Lifecycle
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    testImplementation 'androidx.arch.core:core-testing:2.1.0-beta01'
+
+//    Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+//    Logging
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-alpha-2'
+
 }
 
 private Integer generateVersionCode() {

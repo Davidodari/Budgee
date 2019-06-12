@@ -3,6 +3,12 @@
 
 An android app to keep track of financial goals
 
+## Tools Used
+
+1. [Architecture Components](https://developer.android.com/topic/libraries/architecture)
+2. [Timber](https://github.com/JakeWharton/timber)
+3. [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
+
 ## License
 
 ```
