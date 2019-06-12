@@ -1,7 +1,10 @@
 # Budgee
+|![Budgee banner](art/official_budgee_banner.png)|
+|:--:|
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b8d4b3c474b41f6bf8004d6704e3fc6)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Davidodari/Budgee&amp;utm_campaign=Badge_Grade)
 
-An android app to keep track of financial goals
+An android app to help me keep track of financial goals and progress I am making
 
 ## Tools Used
 

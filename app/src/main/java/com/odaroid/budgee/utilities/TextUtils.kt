@@ -1,4 +1,4 @@
-package com.odaroid.budgee
+package com.odaroid.budgee.utilities
 
 import android.text.Editable
 import android.text.TextWatcher

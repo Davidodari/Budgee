@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.odaroid.budgee.R
-import com.odaroid.budgee.TextWatcherImpl
+import com.odaroid.budgee.utilities.TextWatcherImpl
 import com.odaroid.budgee.data.BudgeeDatabase
 import com.odaroid.budgee.data.accounts.Account
 import com.odaroid.budgee.databinding.FragmentAddAccountBinding
