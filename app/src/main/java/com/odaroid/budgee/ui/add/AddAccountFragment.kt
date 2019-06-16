@@ -15,6 +15,7 @@ import com.odaroid.budgee.R
 import com.odaroid.budgee.databinding.FragmentAddAccountBinding
 import com.odaroid.budgee.ui.ViewModelsFactory
 import com.odaroid.budgee.utilities.TextWatcherImpl
+import com.odaroid.budgee.utilities.closeKeyboard
 
 /**
  * Handles Add Account View Logic in MVVM Stack
@@ -46,6 +47,7 @@ class AddAccountFragment : Fragment() {
                         viewModel.hasNoAccountTarget()
                         viewModel.changeButtonState()
                     }
+
                 }
             })
         binding
@@ -68,6 +70,7 @@ class AddAccountFragment : Fragment() {
             })
         viewModel.shouldNavigateBack.observe(this) { shouldNavigate ->
             if (shouldNavigate) {
+                closeKeyboard(context!!, view!!)
                 findNavController().navigate(R.id.action_addAccountFragment_to_accountsFragment)
                 viewModel.isDoneNavigating()
             }
