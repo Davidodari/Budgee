@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO 1. Improve UI-->
+<com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/size_small"
+        android:layout_margin="4dp"
+        android:minHeight="100dp">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_small">
+
+        <TextView
+                android:id="@+id/label_account_name_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:text="@string/label_account"/>
+
+        <TextView
+                android:id="@+id/account_name_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                tools:text="PlayStation 4"/>
+
+        <TextView
+                android:id="@+id/label_account_target_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:text="@string/label_target"/>
+
+        <TextView
+                android:id="@+id/account_target_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                tools:text="30000"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

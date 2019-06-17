@@ -1,5 +1,6 @@
 package com.odaroid.budgee.data.accounts
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 /**
@@ -9,7 +10,7 @@ import androidx.room.*
 interface AccountDao {
 
     @Query("SELECT * FROM account")
-    fun getAll(): List<Account>
+    fun getAll(): LiveData<List<Account>>
 
     @Insert
     fun insert(vararg accounts: Account)

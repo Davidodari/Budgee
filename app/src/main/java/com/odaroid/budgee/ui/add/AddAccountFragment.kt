@@ -10,11 +10,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import com.odaroid.budgee.R
-import com.odaroid.budgee.TextWatcherImpl
-import com.odaroid.budgee.data.BudgeeDatabase
-import com.odaroid.budgee.data.accounts.Account
 import com.odaroid.budgee.databinding.FragmentAddAccountBinding
+import com.odaroid.budgee.ui.ViewModelsFactory
+import com.odaroid.budgee.utilities.TextWatcherImpl
+import com.odaroid.budgee.utilities.closeKeyboard
 
 /**
  * Handles Add Account View Logic in MVVM Stack
@@ -27,17 +28,16 @@ class AddAccountFragment : Fragment() {
         val binding: FragmentAddAccountBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_add_account, container, false)
         val application = requireNotNull(this.activity).application
-        val dataSource = BudgeeDatabase.getInstance(application).accountDao()
-        val viewModelFactory = AddAccountViewModelFactory(dataSource)
-        val viewModel: AddAccountViewModel by viewModels { viewModelFactory }
+        val viewModel: AddAccountViewModel by viewModels { ViewModelsFactory(application) }
         binding.addAccountViewModel = viewModel
+        binding.lifecycleOwner = this
         binding
             .targetAmountEditText
             .addTextChangedListener(object : TextWatcherImpl {
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     if (s.toString().isNotEmpty() && s.toString().toLong() > 0) {
-                        viewModel.hasAccountTarget()
-                        viewModel.addButtonState()
+                        viewModel.hasAccountTarget(binding.targetAmountEditText.text.toString().toLong())
+                        viewModel.changeButtonState()
                     }
                 }
 
@@ -45,8 +45,9 @@ class AddAccountFragment : Fragment() {
                     super.afterTextChanged(s)
                     if (s.toString().isEmpty()) {
                         viewModel.hasNoAccountTarget()
-                        viewModel.addButtonState()
+                        viewModel.changeButtonState()
                     }
+
                 }
             })
         binding
@@ -54,8 +55,8 @@ class AddAccountFragment : Fragment() {
             .addTextChangedListener(object : TextWatcherImpl {
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     if (s.toString().isNotEmpty()) {
-                        viewModel.hasAccountName()
-                        viewModel.addButtonState()
+                        viewModel.hasAccountName(binding.accountNameEditText.text.toString())
+                        viewModel.changeButtonState()
                     }
                 }
 
@@ -63,26 +64,17 @@ class AddAccountFragment : Fragment() {
                     super.afterTextChanged(s)
                     if (s.toString().isEmpty()) {
                         viewModel.hasNoAccountName()
-                        viewModel.addButtonState()
+                        viewModel.changeButtonState()
                     }
                 }
             })
-        viewModel.isReadyToSave.observe(this) { canSave ->
-            binding.addButton.isEnabled = canSave
-
+        viewModel.shouldNavigateBack.observe(this) { shouldNavigate ->
+            if (shouldNavigate) {
+                closeKeyboard(context!!, view!!)
+                findNavController().navigate(R.id.action_addAccountFragment_to_accountsFragment)
+                viewModel.isDoneNavigating()
+            }
         }
-        onAddButtonClicked(binding, viewModel)
         return binding.root
     }
-
-    private fun onAddButtonClicked(binding: FragmentAddAccountBinding, viewModel: AddAccountViewModel) {
-        binding.addButton.setOnClickListener {
-            val name = binding.accountNameEditText.text.toString()
-            val amount = binding.targetAmountEditText.text.toString().toLong()
-            viewModel.saveAccount(Account(name, amount))
-        }
-    }
 }
-
-
-

@@ -1,17 +1,7 @@
 *.iml
 .gradle
 /local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/dictionaries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/dbnavigator.xml
-/.idea/markdown-navigator
-/.idea/markdown-navigator.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-/.idea/render.experimental.xml
+/.idea/
 .DS_Store
 /build
 /captures
@@ -19,3 +9,4 @@
 .idea/workspace.xml___jb_tmp___
 app/libs/
 app/src/test/
+screenshots/
