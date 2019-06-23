@@ -8,16 +8,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.observe
 import androidx.navigation.findNavController
+import androidx.lifecycle.observe
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.odaroid.budgee.R
 import com.odaroid.budgee.databinding.FragmentAccountsBinding
 import com.odaroid.budgee.ui.ViewModelsFactory
+import com.odaroid.budgee.utilities.ListDividerDecoration
 
-/**
- * Handles Accounts View Logic in MVVM Stack
- */
 class AccountsFragment : Fragment() {
 
     override fun onCreateView(
@@ -30,7 +29,9 @@ class AccountsFragment : Fragment() {
         val recyclerView = binding.accountsRecyclerView
         val accountsAdapter = AccountsAdapter(context!!)
         recyclerView.adapter = accountsAdapter
-        recyclerView.layoutManager = LinearLayoutManager(this.activity)
+        val layoutManager = LinearLayoutManager(this.activity)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.addItemDecoration(ListDividerDecoration(context!!, R.drawable.divider))
         viewModel.accounts.observe(this) { accounts ->
             accounts.run { accountsAdapter.setAccounts(accounts) }
         }
