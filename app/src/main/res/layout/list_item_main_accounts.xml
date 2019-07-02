@@ -1,39 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/size_small">
-
-    <TextView
-            android:id="@+id/label_account_name_text_view"
+<layout>
+    <data>
+        <variable name="Account" type="com.odaroid.budgee.data.accounts.Account"/>
+    </data>
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:text="@string/label_account"/>
+            android:layout_margin="@dimen/size_small">
 
-    <TextView
-            android:id="@+id/account_name_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-            tools:text="PlayStation 4"/>
+        <TextView
+                android:id="@+id/label_account_name_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:text="@string/label_account"/>
 
-    <TextView
-            android:id="@+id/label_account_target_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:text="@string/label_target"/>
+        <TextView
+                android:id="@+id/account_name_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:text="@{Account.name}"
+                tools:text="PlayStation 4"/>
 
-    <TextView
-            android:id="@+id/account_target_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-            tools:text="30000"/>
+        <TextView
+                android:id="@+id/label_account_target_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:text="@string/label_target"/>
 
-</LinearLayout>
+        <TextView
+                android:id="@+id/account_target_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:text="@{String.format(@string/template_target,Account.target)}"
+                tools:text="30000"/>
+
+    </LinearLayout>
+</layout>
