@@ -2,12 +2,10 @@ package com.odaroid.budgee.ui.home
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.odaroid.budgee.R
 import com.odaroid.budgee.data.accounts.Account
+import com.odaroid.budgee.databinding.ListItemMainAccountsBinding
 
 
 class AccountsAdapter internal constructor(
@@ -17,20 +15,22 @@ class AccountsAdapter internal constructor(
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var accounts = emptyList<Account>()
 
-    inner class AccountViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val accountName: TextView = itemView.findViewById(R.id.account_name_text_view)
-        val accountTarget: TextView = itemView.findViewById(R.id.account_target_text_view)
+    inner class AccountViewHolder(private val binding: ListItemMainAccountsBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(account: Account) {
+            binding.account = account
+            binding.executePendingBindings()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AccountViewHolder {
-        val itemView = inflater.inflate(R.layout.list_item_main_accounts, parent, false)
-        return AccountViewHolder(itemView)
+        val binding = ListItemMainAccountsBinding.inflate(inflater, parent, false)
+        return AccountViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: AccountViewHolder, position: Int) {
         val current = accounts[position]
-        holder.accountName.text = current.name
-        holder.accountTarget.text = current.target.toString()
+        holder.bind(current)
     }
 
     internal fun setAccounts(accounts: List<Account>) {
