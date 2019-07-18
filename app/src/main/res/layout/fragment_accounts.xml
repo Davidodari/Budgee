@@ -12,7 +12,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:itemCount="10"
-                android:padding="8dp"
+                android:padding="@dimen/padding_small"
                 tools:listitem="@layout/list_item_main_accounts"/>
         <!--
         TODO: Investigate why this attribute is required explicitly to pass tests
@@ -25,7 +25,7 @@
                 android:backgroundTint="@color/color_secondary"
                 android:layout_gravity="bottom|end"
                 android:theme="@style/Theme.MaterialComponents.DayNight"
-                android:layout_margin="@dimen/size_standard"
+                android:layout_margin="@dimen/margin_default"
                 android:src="@drawable/ic_add"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -15,14 +15,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="@dimen/size_standard"/>
+                app:layout_constraintGuide_begin="@dimen/margin_default"/>
 
         <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_begin="@dimen/size_standard"/>
+                app:layout_constraintGuide_begin="@dimen/margin_default"/>
 
         <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
@@ -33,7 +33,7 @@
                 android:minHeight="@dimen/card_min_size">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                    android:padding="@dimen/size_standard"
+                    android:padding="@dimen/margin_default"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputLayout
@@ -59,7 +59,7 @@
                         android:id="@+id/account_target_text_layout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/size_standard"
+                        android:layout_marginTop="@dimen/margin_default"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:hint="@string/hint_account_target"
                         app:errorEnabled="true"
@@ -97,13 +97,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="@dimen/size_standard"/>
+                app:layout_constraintGuide_end="@dimen/margin_default"/>
         <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_end="@dimen/size_standard"/>
+                app:layout_constraintGuide_end="@dimen/margin_default"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
