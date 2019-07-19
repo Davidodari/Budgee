@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="size_standard">16dp</dimen>
-    <dimen name="size_small">8dp</dimen>
+
+    <!--Margins-->
+    <dimen name="margin_extra_small">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_default">16dp</dimen>
+
+    <!--Padding-->
+    <dimen name="padding_small">8dp</dimen>
+
+    <!--Card Dimension Values-->
     <dimen name="card_min_size">200dp</dimen>
-    <dimen name="margin_small">4dp</dimen>
     <dimen name="radius_standard">4dp</dimen>
     <dimen name="card_min_height">100dp</dimen>
     <dimen name="card_elevation_small">4dp</dimen>
+
     <dimen name="divider_height">2dp</dimen>
+
 </resources>

@@ -17,11 +17,11 @@ class AddAccountViewModel(application: Application) : AndroidViewModel(applicati
 
     private val repository: AccountsRepository
 
-    private val _accountName: MutableLiveData<String> by lazy { MutableLiveData<String>() }
+    private val _accountName: MutableLiveData<String> by lazy { MutableLiveData() }
 
-    private val _accountTarget: MutableLiveData<Long> by lazy { MutableLiveData<Long>() }
+    private val _accountTarget: MutableLiveData<Long> by lazy { MutableLiveData() }
 
-    private val _shouldNavigateBack: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
+    private val _shouldNavigateBack: MutableLiveData<Boolean> by lazy { MutableLiveData() }
     val shouldNavigateBack: LiveData<Boolean>
         get() = _shouldNavigateBack
 
